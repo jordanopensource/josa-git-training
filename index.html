@@ -44,6 +44,10 @@
 			box-shadow: none;
 		}
 
+		.reveal code {
+			background: #3F3F3F;
+		}
+
 		.reveal pre.code {
 			display: block;
 			padding: 5px;
@@ -92,21 +96,29 @@
 
 				<section>
 					<section>
-						<h3>The Problem</h3>
+						<h3>Version Control Systems</h3>
 						<ul>
-							<li>Codebase is undergoing frequent changes. It is easy for something to go wrong.</li>
-							<li>How do you review the codebase history?</li>
-							<li>How do you handle changes done by different people working on the same files?</li>
-							<li>How do you make sure every server and developer has the same version across?</li>
+							<li>Allows you to keep a history of every change within a project.</li>
+							<li>Allows multiple people to collaborate on the same project, without evil stuff happening.</li>
+							<li>Allows multiple people to make sure that when they are working with a specific version they have the same code all around.</li>
 						</ul>
 					</section>
 					<section>
-						<h3>Possible Solutions</h3>
+						<h3>Different Systems of Version Control</h3>
 						<ul>
-							<li>Copy and paste? <span style="float: right; color: red;" class="fragment">&nbsp;&nbsp;&nbsp;&#x2716;</span></li>
-							<li class="fragment">FTP server? <span style="float: right; color: red;" class="fragment">&nbsp;&nbsp;&nbsp;&#x2716;</span></li>
-							<li class="fragment">Version control system? <span style="float: right; color: green;" class="fragment">&nbsp;&nbsp;&nbsp;&#x2714;</span></li>
+							<li>Local version control systems</li>
+							<li class="fragment">Centralized version control systems</li>
+							<li class="fragment">Distributed version control systems</li>
 						</ul>
+					</section>
+					<section>
+						<h3>Local Version Control Systems</h3>
+						<div style="width: 45%; display: inline-block; text-align: left;">
+							<p>Simple database that keeps all changes to files under version control.</p>
+							<p>Example system: <code>RCS</code></p>
+							<p><code>RCS</code> keeps patch sets and recreates what any file looked like at any point in time by adding up all the patches.</p>
+						</div>
+						<img src="img/local-vcs.png" style="width: 45%; float: right">
 					</section>
 				</section>
 
@@ -186,6 +198,13 @@
 						<h2>Tags</h2>
 						<img class="full" src="img/tags-b.svg">
 					</section>
+				</section>
+
+				<section>
+					<h3>References</h3>
+					<ul>
+						<li>http://www.slideshare.net/leeky/gittalk?qid=b2fc5360-a943-467e-9e66-c3481173cdb2&v=qf1&b=&from_search=6</li>
+					</ul>
 				</section>
 
 			</div>
