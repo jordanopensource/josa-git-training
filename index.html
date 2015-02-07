@@ -57,6 +57,29 @@
 			background: #3F3F3F;
 			color: #DCDCDC;
 		}
+
+		.reveal p {
+			text-align: left;
+		}
+
+		.reveal p.glossary {
+			background: #333;
+			color: #999;
+			padding: 20px;
+			display: block;
+			text-align: center;
+			font-size: 0.8em;
+		}
+
+		.reveal p.glossary:before {
+			content: open-quote;
+			font-size: 1.2em;
+		}
+
+		.reveal p.glossary:after {
+			content: close-quote;
+			font-size: 1.2em;
+		}
 	</style>
 		<!--[if lt IE 9]>
 		<script src="lib/js/html5shiv.js"></script>
@@ -113,7 +136,7 @@
 					</section>
 					<section>
 						<h3>Local Version Control Systems</h3>
-						<div style="width: 45%; display: inline-block; text-align: left;">
+						<div style="width: 45%; display: inline-block;">
 							<p>Simple database that keeps all changes to files under version control.</p>
 							<p>Example system: <code>RCS</code></p>
 							<p><code>RCS</code> keeps patch sets and recreates what any file looked like at any point in time by adding up all the patches.</p>
@@ -122,7 +145,7 @@
 					</section>
 					<section>
 						<h3>Centralized Version Control Systems</h3>
-						<ul style="width: 45%; display: inline-block; text-align: left; font-size: 0.9em">
+						<ul style="width: 45%; display: inline-block; font-size: 0.9em">
 							<li>Allows collaboration between different people.</li>
 							<li>A single server that contains all the versioned files.</li>
 							<li>A number of clients that check out files from that central place.</li>
@@ -133,10 +156,10 @@
 					</section>
 					<section>
 						<h3>Distributed Version Control Systems</h3>
-						<div style="width: 45%; display: inline-block; text-align: left;">
-							<p>Users fully mirror repository.</p>`
-							<p>A failed server can be restored from any client's mirror.</p>`
-							<p>Example systems: <code>git</code>, <code>mercurial</code>.</p>`
+						<div style="width: 45%; display: inline-block;">
+							<p>Users fully mirror repository.</p>
+							<p>A failed server can be restored from any client's mirror.</p>
+							<p>Example systems: <code>git</code>, <code>mercurial</code>.</p>
 						</div>
 						<img src="img/distributed-vcs.png" style="width: 45%; float: right">
 					</section>
@@ -145,26 +168,47 @@
 				<section>
 					<section>
 						<h3>Installing git</h3>
-						<p align="left">To install git on Linux:</p>
+						<p>To install git on Linux:</p>
 						<pre class="code">apt-get install git</pre>
 						<pre class="code">yum install git</pre>
 						<pre class="code">pacman -S git</pre>
-						<p align="left">To install git on Mac:</p>
+						<p>To install git on Mac:</p>
 						<pre class="code">brew install git</pre>
 						<pre class="code">http://git-scm.com/download</pre>
-						<p align="left">To install git on Windows:</p>
+						<p>To install git on Windows:</p>
 						<pre class="code">http://git-scm.com/download</pre>
 					</section>
 					<section>
 						<h3>git First-Time Configuration</h3>
-						<p align="left">To setup user name:</p>
+						<p>To setup user name:</p>
 						<pre class="code">$ git config --global user.name "Absi Gittawi"</pre>
-						<p align="left">To setup email:</p>
+						<p>To setup email:</p>
 						<pre class="code">$ git config --global user.email absi.gittawi@example.com</pre>
-						<p align="left">To list all configurations:</p>
+						<p>To list all configurations:</p>
 						<pre class="code">$ git config --list</pre>
 					</section>
 				</section>
+
+				<section>
+					<section>
+						<h3>Starting with git</h3>
+						<p class="glossary">Repository: in simple words, a project's folder. A repository contains all of the project files, each file's revision history, user configuration, and git data.</p>
+						<div class="fragment">
+							<p>To initialize a repo (short for repository) in an existing folder:</p>
+							<pre class="code zsh">$ git init</pre>
+						</div>
+						<div class="fragment">
+							<p>To initialize a repo in a new folder:</p>
+							<pre class="code zsh">$ git init &lt;project-folder&gt;</pre>
+						</div>
+					</section>
+					<section>
+						<h3>The Three States</h3>
+						<img src="img/three-states.png">
+					</section>
+
+				</section>
+
 				<section>
 					<h3>Undoing Things</h3>
 					<pre class="code zsh">$ git checkout &lt;commit&gt;</pre>
@@ -190,14 +234,14 @@
 			<section>
 				<section>
 					<h2>Tags</h2>
-					<p class="fragment" align="left">Tags are pointers to commits. They don't move with time.</p>
-					<p class="fragment" align="left">Typical usage is to mark release points and versions.</p>
+					<p class="fragment">Tags are pointers to commits. They don't move with time.</p>
+					<p class="fragment">Typical usage is to mark release points and versions.</p>
 					<div class="fragment">
-						<p align="left">To create a new tag:</p>
+						<p>To create a new tag:</p>
 						<pre class="code zsh">$ git tag &lt;tag-name&gt;</pre>
 					</div>
 					<div class="fragment">
-						<p align="left">To list available tags:</p>
+						<p>To list available tags:</p>
 						<pre class="code zsh">$ git tag</pre>
 					</div>
 				</section>
@@ -214,9 +258,9 @@
 			<section>
 				<section>
 					<h2>Stash</h2>
-					<p class="fragment" align="left">Problem: you are in the middle of something, and Absi, the QA team head, comes rushing. "There is an urgent bug that needs to be resolved now!".</p>
-					<p class="fragment" align="left">You need to stop what you're doing and make a change on the production version.</p>
-					<p class="fragment" align="left">You try to checkout to the latest release tag, but stupid git is yelling:
+					<p class="fragment">Problem: you are in the middle of something, and Absi, the QA team head, comes rushing. "There is an urgent bug that needs to be resolved now!".</p>
+					<p class="fragment">You need to stop what you're doing and make a change on the production version.</p>
+					<p class="fragment">You try to checkout to the latest release tag, but stupid git is yelling:
 						<pre class="fragment">error: Your local changes to the following files would be overwritten
 							by checkout:
 							index.html
@@ -225,11 +269,11 @@
 							Aborting</pre>
 						</p>
 						<div class="fragment">
-							<p align="left">To create a new tag:</p>
+							<p>To create a new tag:</p>
 							<pre class="code zsh">$ git tag &lt;tag-name&gt;</pre>
 						</div>
 						<div class="fragment">
-							<p align="left">To list available tags:</p>
+							<p>To list available tags:</p>
 							<pre class="code zsh">$ git tag</pre>
 						</div>
 					</section>
