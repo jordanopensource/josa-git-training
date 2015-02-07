@@ -134,14 +134,37 @@
 					<section>
 						<h3>Distributed Version Control Systems</h3>
 						<div style="width: 45%; display: inline-block; text-align: left;">
-							<p>Users fully mirror repository.</p>
-							<p>A failed server can be restored from any client's mirror.</p>
-							<p>Example systems: <code>git</code>, <code>mercurial</code>.</p>
+							<p>Users fully mirror repository.</p>`
+							<p>A failed server can be restored from any client's mirror.</p>`
+							<p>Example systems: <code>git</code>, <code>mercurial</code>.</p>`
 						</div>
 						<img src="img/distributed-vcs.png" style="width: 45%; float: right">
 					</section>
 				</section>
 
+				<section>
+					<section>
+						<h3>Installing git</h3>
+						<p align="left">To install git on Linux:</p>
+						<pre class="code">apt-get install git</pre>
+						<pre class="code">yum install git</pre>
+						<pre class="code">pacman -S git</pre>
+						<p align="left">To install git on Mac:</p>
+						<pre class="code">brew install git</pre>
+						<pre class="code">http://git-scm.com/download</pre>
+						<p align="left">To install git on Windows:</p>
+						<pre class="code">http://git-scm.com/download</pre>
+					</section>
+					<section>
+						<h3>git First-Time Configuration</h3>
+						<p align="left">To setup user name:</p>
+						<pre class="code">$ git config --global user.name "Absi Gittawi"</pre>
+						<p align="left">To setup email:</p>
+						<pre class="code">$ git config --global user.email absi.gittawi@example.com</pre>
+						<p align="left">To list all configurations:</p>
+						<pre class="code">$ git config --list</pre>
+					</section>
+				</section>
 				<section>
 					<h3>Undoing Things</h3>
 					<pre class="code zsh">$ git checkout &lt;commit&gt;</pre>
