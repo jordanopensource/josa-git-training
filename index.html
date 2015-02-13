@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
 
-    <title>reveal.js - The HTML Presentation Framework</title>
+    <title>Git Training - JOSA</title>
 
     <meta name="description" content="JOSA Git Training">
     <meta name="author" content="JOSA">
@@ -220,64 +220,33 @@
           </section>
         </section>
         <section>
-          <h3>Undoing Things</h3>
-          <pre class="code zsh">$ git checkout &lt;commit&gt;</pre>
-          <img class="half fragment" src="img/undo.svg">
-          <pre class="code zsh fragment">$ git checkout B-SHA</pre>
-          <img class="half fragment" src="img/undo-checkout.svg">
+          <section>
+            <h3>Undoing Things</h3>
+            <pre class="code zsh">$ git checkout &lt;commit&gt;</pre>
+            <img class="half fragment" src="img/undo.svg">
+            <pre class="code zsh fragment">$ git checkout B-SHA</pre>
+            <img class="half fragment" src="img/undo-checkout.svg">
+          </section>
+          <section>
+            <h3>Undoing Things</h3>
+            <pre class="code zsh">$ git reset &lt;commit&gt;</pre>
+            <img class="half fragment" src="img/undo.svg">
+            <img class="half fragment" src="img/undo-reset.svg">
+            <pre class="code zsh fragment">$ git reset --soft B-SHA</pre>
+          </section>
+          <section>
+            <h3>Undoing Things</h3>
+            <pre class="code zsh">$ git revert &lt;commit&gt;</pre>
+            <img class="half fragment" src="img/undo-revert.svg">
+            <p class="fragment"><code>E</code> is a new commit that undoes the changes made in commit <code>D*</code></p>
+          </section>
         </section>
-        <section>
-          <h3>Undoing Things</h3>
-          <pre class="code zsh">$ git reset &lt;commit&gt;</pre>
-          <img class="half fragment" src="img/undo.svg">
-          <img class="half fragment" src="img/undo-reset.svg">
-          <pre class="code zsh fragment">$ git reset --soft B-SHA</pre>
-        </section>
-        <section>
-          <h3>Undoing Things</h3>
-          <pre class="code zsh">$ git revert &lt;commit&gt;</pre>
-          <img class="half fragment" src="img/undo-revert.svg">
-          <p class="fragment"><code>E</code> is a new commit that undoes the changes made in commit <code>D*</code></p>
-        </section>
-      </section>
 
-      <section>
         <section>
-          <h2>Tags</h2>
-          <p class="fragment">Tags are pointers to commits. They don't move with time.</p>
-          <p class="fragment">Typical usage is to mark release points and versions.</p>
-          <div class="fragment">
-            <p>To create a new tag:</p>
-            <pre class="code zsh">$ git tag &lt;tag-name&gt;</pre>
-          </div>
-          <div class="fragment">
-            <p>To list available tags:</p>
-            <pre class="code zsh">$ git tag</pre>
-          </div>
-        </section>
-        <section>
-          <h2>Tags</h2>
-          <img class="full" src="img/tags-a.svg">
-        </section>
-        <section>
-          <h2>Tags</h2>
-          <img class="full" src="img/tags-b.svg">
-        </section>
-      </section>
-
-      <section>
-        <section>
-          <h2>Stash</h2>
-          <p class="fragment">Problem: you are in the middle of something, and Absi, the QA team head, comes rushing. "There is an urgent bug that needs to be resolved now!".</p>
-          <p class="fragment">You need to stop what you're doing and make a change on the production version.</p>
-          <p class="fragment">You try to checkout to the latest release tag, but stupid git is yelling:
-            <pre class="fragment">error: Your local changes to the following files would be overwritten
-              by checkout:
-              index.html
-              Please, commit your changes or stash them before you can switch
-              branches.
-              Aborting</pre>
-            </p>
+          <section>
+            <h2>Tags</h2>
+            <p class="fragment">Tags are pointers to commits. They don't move with time.</p>
+            <p class="fragment">Typical usage is to mark release points and versions.</p>
             <div class="fragment">
               <p>To create a new tag:</p>
               <pre class="code zsh">$ git tag &lt;tag-name&gt;</pre>
@@ -294,6 +263,46 @@
           <section>
             <h2>Tags</h2>
             <img class="full" src="img/tags-b.svg">
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h2>Stash</h2>
+            <p class="fragment">Problem: you are in the middle of something, and Absi, the QA team head, comes rushing. "There is an urgent bug that needs to be resolved now!".</p>
+            <p class="fragment">You need to stop what you're doing and make a change on the production version.</p>
+            <div class="fragment">
+              <p>You try to checkout to the latest release tag, but stupid git is yelling:</p>
+              <pre class="fragment">error: Your local changes to the following files would be overwritten
+  by checkout:
+    index.html
+  Please, commit your changes or stash them before you can switch
+  branches.
+  Aborting</pre>
+            </div>
+          </section>
+          <section>
+            <h2>Stash</h2>
+            <p>Stashing takes the dirty state of your working directory and saves it on a stack of unfinished changes that you can reapply at any time.</p>
+            <p>Result is an empty working directory that you can restore when you are ready.</p>
+          </section>
+          <section>
+            <h2>Stash</h2>
+            <div class="fragment">
+              <p>To stash your changes:</p>
+              <pre class="code zsh">$ git stash</pre>
+              <pre class="code zsh">$ git stash save</pre>
+              <pre class="code zsh">$ git stash save &lt;message&gt;</pre>
+            </div>
+            <div class="fragment">
+              <p>To restore stashed changes:</p>
+              <pre class="code zsh">$ git stash pop</pre>
+              <pre class="code zsh">$ git stash apply</pre>
+            </div>
+            <div class="fragment">
+              <p>To see available stashes:</p>
+              <pre class="code zsh">$ git stash list</pre>
+            </div>
           </section>
         </section>
 
@@ -339,4 +348,3 @@
     </script>
   </body>
 </html>
-
