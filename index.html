@@ -294,15 +294,31 @@
             <ul>
               <li class="fragment">Incredibly lightweight</li>
               <li class="fragment">References to a specific commit -- nothing more</li>
+              <li class="fragment">A branch is a pointer that moves forward with every new commit</li>
+              <li class="fragment">The default branch name in git is master</li>
             </ul>
+          </section>
+          <section>
+            <h3>Working with branches (Cont.)</h3>
             <div class="fragment">
               <p>Creating a new branch:</p>
               <pre class="code zsh">$ git branch &lt;branch-name&gt;</pre>
             </div>
+            <img class="half fragment" src="img/two-branches.png">
+          </section>
+          <section>
+            <h3>Working with branches (Cont.)</h3>
+            <p>What branch am I on?</p>
+            <img class="half fragment" src="img/head-to-master.png">
+          </section>
+
+          <section>
+            <h3>Working with branches (Cont.)</h3>
             <div class="fragment">
               <p>Switching branches:</p>
               <pre class="code zsh">$ git checkout &lt;branch-name&gt;</pre>
             </div>
+            <img class="half fragment" src="img/head-to-testing.png">
           </section>
           <section>
             <h3>Merging branches</h3>
@@ -344,6 +360,7 @@
 >>>>>>> iss53:index.html
             </pre>
             </div>
+            <p class="fragment">After you resolve the conflicts, add and commit the files</p>
           </section>
         </section>
 
