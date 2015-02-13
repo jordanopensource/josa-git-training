@@ -221,41 +221,41 @@
           <section>
             <h3>git add</h3>
             <div class="fragment">
-              <p>Add a single file</p>
+              <p>To add a single file:</p>
               <pre class="code zsh">$ git add &lt;file-name&gt;</pre>
             </div>
             <div class="fragment">
-              <p>Add everything</p>
+              <p>To add all files in current folder and subfolders:</p>
               <pre class="code zsh">$ git add .</pre>
             </div>
             <div class="fragment">
-              <p>Add hunks (tracked files only)</p>
+              <p>To add hunks (tracked files only):</p>
               <pre class="code zsh">$ git add -p</pre>
             </div>
           </section>
           <section>
             <h3>git reset</h3>
             <div class="fragment">
-              <p>Reset a single file</p>
+              <p>To reset a single file:</p>
               <pre class="code zsh">$ git reset &lt;file-name&gt;</pre>
             </div>
             <div class="fragment">
-              <p>Reset everything</p>
+              <p>To reset all changes files in current folder and subfolders:</p>
               <pre class="code zsh">$ git reset .</pre>
             </div>
             <div class="fragment">
-              <p>Reset hunks</p>
+              <p>To reset hunks:</p>
               <pre class="code zsh">$ git reset -p</pre>
             </div>
           </section>
           <section>
             <h3>git diff</h3>
             <div class="fragment">
-              <p>What changed but not yet staged:</p>
+              <p>To see what changed but not has not yet staged:</p>
               <pre class="code zsh">$ git diff</pre>
             </div>
             <div class="fragment">
-              <p>What is staged so far</p>
+              <p>To see what is staged so far:</p>
               <pre class="code zsh">$ git diff --cached</pre>
               <pre class="code zsh">$ git diff --staged</pre>
             </div>
@@ -263,15 +263,16 @@
           <section>
             <h3>Committing Changes</h3>
             <div class="fragment">
-              <p>Launches text editor (can be set using core.editor config)</p>
+              <p>To commit:</p>
               <pre class="code zsh">$ git commit</pre>
+              <p>This launches a text editor (can be set using core.editor config).</p>
             </div>
             <div class="fragment">
-              <p>Enter commit message inline</p>
+              <p>To commit and enter commit message on command-line:</p>
               <pre class="code zsh">$ git commit -m "&lt;commit-message&gt;"</pre>
             </div>
             <div class="fragment">
-              <p>Skip staging area: adds and commits every tracked file</p>
+              <p>To skip staging area, add and commit every tracked file:</p>
               <pre class="code zsh">$ git commit -am "&lt;commit-message&gt;"</pre>
             </div>
           </section>
