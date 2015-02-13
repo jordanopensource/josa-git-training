@@ -568,6 +568,33 @@ e37c1329 (Nguyễn Thái Ngọc Duy    2010-08-05 21:40:35 -0500 623)</pre>
         </section>
 
         <section>
+          <section>
+            <h2>gitignore</h2>
+            <p>gitignore is a way to intentionally specify files not to track.</p>
+            <p class="fragment">To use it, create a <code>.gitignore</code> file in a folder under a git repo and a line for each pattern you want to ignore. Then commit it and push it for all users to use it.</p>
+            <p class="fragment">Files already tracked by git are not affected.</p>
+            <p class="fragment">To stop tracking a file that is currently tracked, use <code>git rm --cached</code>.</p>
+          </section>
+          <section>
+            <h2>gitignore</h2>
+            <p>Example file for C/C++ based projects:</p>
+            <pre class="code zsh">$ cat .gitignore
+bin/
+debug/
+*.o
+*.sln</pre>
+            <p>Example file for Java based projects:</p>
+            <pre class="code zsh">$ cat .gitignore
+*.class
+*.jar
+*.war
+
+# you can negate the rule to include a file despite previous rules
+!stable.v1.1.jar</pre>
+          </section>
+        </section>
+
+        <section>
           <h3>References</h3>
           <ul>
             <li>http://www.slideshare.net/leeky/gittalk?qid=b2fc5360-a943-467e-9e66-c3481173cdb2&v=qf1&b=&from_search=6</li>
