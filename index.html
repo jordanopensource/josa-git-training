@@ -395,6 +395,33 @@
         </section>
 
         <section>
+          <section>
+            <h2>Git Aliases</h2>
+            <p>Absi is a lazy programmer and he likes making efficient use of his finger movements.</p>
+            <p>Git aliases enable having shortcuts for git commands.</p>
+            <div class="fragment">
+              <p>To add a new alias:</p>
+              <pre class="zsh code">$ git config --global alias.<em>&lt;alias&gt;</em> '<em>&lt;command&gt;</em>'</pre>
+            </div>
+            <div class="fragment">
+              <p>Or you can make the changes in <code>~/.gitconfig</code> file:</p>
+              <pre class="zsh code">$ vim ~/.gitconfig</pre>
+            </div>
+          </section>
+          <section>
+            <h2>Git Aliases</h2>
+            <p>Examples:</p>
+            <pre class="zsh code fragment">$ git config --global alias.st 'status'</pre>
+            <pre class="zsh code fragment">$ git config --global alias.co 'checkout'</pre>
+            <pre class="zsh code fragment">$ git config --global alias.br 'branch'</pre>
+            <pre class="zsh code fragment">$ git config --global alias.unstage 'reset HEAD --'</pre>
+            <p class="fragment">Some more interesting examples:</p>
+            <pre class="zsh code fragment">$ git config --global alias.lg 'log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)&lt;%an&gt;%Creset' --abbrev-commit'</pre>
+            <pre class="zsh code fragment">$ git config --global alias.visual '!gitk'</pre>
+          </section>
+        </section>
+
+        <section>
           <h3>References</h3>
           <ul>
             <li>http://www.slideshare.net/leeky/gittalk?qid=b2fc5360-a943-467e-9e66-c3481173cdb2&v=qf1&b=&from_search=6</li>
