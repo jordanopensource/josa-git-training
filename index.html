@@ -320,8 +320,32 @@
               <pre class="code zsh">$ git merge &lt;branch-name&gt;</pre>
             </div>
           </section>
+          <section>
+            <h3>Merge Conflicts</h3>
+            <p class="fragment">Occasionally conflicts happen:</p>
+            <ul>
+              <li class="fragment">Same part of the same file changed differently in the two branches you’re merging</li>
+              <li class="fragment">Git won’t be able to merge the branches cleanly</li>
+              <li class="fragment">You will have to resolve the conflict manually</li>
+            </ul>
+            <div class="fragment">
+              <pre class="code zsh">$ git merge &lt;bug-fix&gt;<br />Auto-merging index.html<br />CONFLICT (content): Merge conflict in index.html<br />Automatic merge failed; fix conflicts and then commit the result.</pre>
+            </div>
+          </section>
+          <section>
+            <h3>Merge Conflicts (Cont.)</h3>
+            <div class="fragment">
+            <pre class="code zsh"><<<<<<< HEAD:index.html
+<div id="footer">contact : absi.gittawi@jordanopensource.org</div>
+=======
+<div id="footer">
+ please contact us at gittawi.absi@jordanopensource.org
+</div>
+>>>>>>> iss53:index.html
+            </pre>
+            </div>
+          </section>
         </section>
-
         <section>
           <section>
             <h3>Undoing Things</h3>
