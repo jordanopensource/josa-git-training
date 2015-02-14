@@ -639,9 +639,32 @@ debug/
             <h2>Git Rebase</h2>
             <p>To rebase:</p>
             <pre class="code zsh">$ git rebase &lt;branch&gt;</pre>
-            <p class="fragment">An interactive rebase gives you the opportunity to alter individual commits in the process rather than blindly moving all of the commits to the new base.</p>
-            <pre class="code zsh">pick 32618c4 Start developing a feature
-pick 62eed47 Fix something from the previous commit</pre>
+            <div class="fragment">
+              <p>An interactive rebase gives you the opportunity to alter individual commits in the process rather than blindly moving all of the commits to the new base.</p>
+              <pre class="code zsh">$ git rebase -i &lt;branch&gt;</pre>
+            </div>
+          </section>
+          <section>
+            <h2>Interactive Rebase</h2>
+            <pre class="code zsh">pick 9b6dbf3 Added rebasing
+
+# Rebase aced1c4..9b6dbf3 onto aced1c4
+#
+# Commands:
+#  p, pick = use commit
+#  r, reword = use commit, but edit the commit message
+#  e, edit = use commit, but stop for amending
+#  s, squash = use commit, but meld into previous commit
+#  f, fixup = like "squash", but discard this commit's log message
+#  x, exec = run command (the rest of the line) using shell
+#
+# These lines can be re-ordered; they are executed from top to bottom.
+#
+# If you remove a line here THAT COMMIT WILL BE LOST.
+#
+# However, if you remove everything, the rebase will be aborted.
+#
+# Note that empty commits are commented out</pre>
           </section>
         </section>
 
