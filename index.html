@@ -92,8 +92,13 @@
       <!-- Any section element inside of this container is displayed as a slide -->
       <div class="slides">
         <section>
-          <h3>Git Training</h3>
-          <h5>Authors</h5>
+          <h3>Git Essentials Training</h3>
+          <h3>by JOSA</h3>
+          <br /><br />
+          <div style="font-size: 0.8em; text-align: left;">Presenters:</div>
+          <div style="font-size: 0.8em; text-align: right;">Anas Al Hamdan <span style="font-size: 0.8em; color: #777">@AnasAlhamdan</span></div>
+          <div style="font-size: 0.8em; text-align: right;">Mamoun Saudi <span style="font-size: 0.8em; color: #777">@Aqabawe</span></div>
+          <div style="font-size: 0.8em; text-align: right;">Yazan Dabain <span style="font-size: 0.8em; color: #777">&lt;yazan.dabain@gmail.com&gt;</span></div>
         </section>
 
         <section>
@@ -294,15 +299,31 @@
             <ul>
               <li class="fragment">Incredibly lightweight</li>
               <li class="fragment">References to a specific commit -- nothing more</li>
+              <li class="fragment">A branch is a pointer that moves forward with every new commit</li>
+              <li class="fragment">The default branch name in git is master</li>
             </ul>
+          </section>
+          <section>
+            <h3>Working with branches (Cont.)</h3>
             <div class="fragment">
               <p>Creating a new branch:</p>
               <pre class="code zsh">$ git branch &lt;branch-name&gt;</pre>
             </div>
+            <img class="half fragment" src="img/two-branches.png">
+          </section>
+          <section>
+            <h3>Working with branches (Cont.)</h3>
+            <p>What branch am I on?</p>
+            <img class="half fragment" src="img/head-to-master.png">
+          </section>
+
+          <section>
+            <h3>Working with branches (Cont.)</h3>
             <div class="fragment">
               <p>Switching branches:</p>
               <pre class="code zsh">$ git checkout &lt;branch-name&gt;</pre>
             </div>
+            <img class="half fragment" src="img/head-to-testing.png">
           </section>
           <section>
             <h3>Merging branches</h3>
@@ -344,6 +365,7 @@
 >>>>>>> iss53:index.html
             </pre>
             </div>
+            <p class="fragment">After you resolve the conflicts, add and commit the files</p>
           </section>
         </section>
 
@@ -378,7 +400,6 @@
             <p class="glossary">Remote repositories are versions of your project that are hosted on the Internet or network somewhere.</p>
             <ul>
               <li>You can have several repositories</li>
-              <li>You may have different permissions on each repository</li>
               <li>You may have different permissions on each repository</li>
             </ul>
 
@@ -585,8 +606,183 @@ e37c1329 (Nguyễn Thái Ngọc Duy    2010-08-05 21:40:35 -0500 623)</pre>
         </section>
 
         <section>
+          <section>
+            <h2>gitignore</h2>
+            <p>gitignore is a way to intentionally specify files not to track.</p>
+            <p class="fragment">To use it, create a <code>.gitignore</code> file in a folder under a git repo and a line for each pattern you want to ignore. Then commit it and push it for all users to use it.</p>
+            <p class="fragment">Files already tracked by git are not affected.</p>
+            <p class="fragment">To stop tracking a file that is currently tracked, use <code>git rm --cached</code>.</p>
+          </section>
+          <section>
+            <h2>gitignore</h2>
+            <p>Example file for C/C++ based projects:</p>
+            <pre class="code zsh">$ cat .gitignore
+bin/
+debug/
+*.o
+*.sln</pre>
+            <p>Example file for Java based projects:</p>
+            <pre class="code zsh">$ cat .gitignore
+*.class
+*.jar
+*.war
+
+# you can negate the rule to include a file despite previous rules
+!stable.v1.1.jar</pre>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h2>Git Rebase</h2>
+            <p>A rebase is a different way to integrate changes from one branch to another.</p>
+            <p class="fragment">A merge command uses three-way merge between the two latest branch snapshots and the most recent common ancestor of the two, creating a new commit (the merge commit).</p>
+            <p class="fragment">A rebase, on the other hand, integrates each change introduced by a commit as a new commit in the target branch.</p>
+          </section>
+          <section>
+            <h2>Git Rebase</h2>
+            <img src="img/rebase-a.svg" style="width: 45%; float: left">
+            <span class="fragment">
+              <img src="img/rebase-b.svg" style="width: 45%; float: right">
+              <pre class="code zsh" style="clear: both">$ git rebase -i master</pre>
+            </span>
+            <div class="fragment">
+              <pre class="code zsh">$ git checkout master</pre>
+              <pre class="code zsh">$ git merge feature</pre>
+              <img src="img/rebase-c.svg" style="width: 45%">
+            </div>
+          </section>
+          <section>
+            <h2>Git Rebase</h2>
+            <p>To rebase:</p>
+            <pre class="code zsh">$ git rebase &lt;branch&gt;</pre>
+            <div class="fragment">
+              <p>An interactive rebase gives you the opportunity to alter individual commits in the process rather than blindly moving all of the commits to the new base.</p>
+              <pre class="code zsh">$ git rebase -i &lt;branch&gt;</pre>
+            </div>
+          </section>
+          <section>
+            <h2>Interactive Rebase</h2>
+            <pre class="code zsh">pick 9b6dbf3 Added rebasing
+pick 2106a4e Continue rebasing
+
+# Rebase aced1c4..2106a4e onto aced1c4
+#
+# Commands:
+#  p, pick = use commit
+#  r, reword = use commit, but edit the commit message
+#  e, edit = use commit, but stop for amending
+#  s, squash = use commit, but meld into previous commit
+#  f, fixup = like "squash", but discard this commit's log message
+#  x, exec = run command (the rest of the line) using shell
+#
+# These lines can be re-ordered; they are executed from top to bottom.
+#
+# If you remove a line here THAT COMMIT WILL BE LOST.
+#
+# However, if you remove everything, the rebase will be aborted.
+#
+# Note that empty commits are commented out</pre>
+          </section>
+          <section>
+            <h2>Rebase vs Merge</h2>
+            <p>Merging produces commits which can help you in tracking history more, but can also be noisy.</p>
+            <p>Rebasing provides a way to have a linear line of history.</p>
+            <p>Rebasing can be a destructive tool.</p>
+            <p>Rebase should not be used on public branches.</p>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h2>Git Bisect</h2>
+            <p>Let’s say you just pushed out a release of your code to a production environment, you’re getting bug reports about something that wasn’t happening in your development environment, and you can’t imagine why the code is doing that.</p>
+            <p>Git bisect is a tool to do a binary search on your codebase to find a buggy commit.</p>
+          </section>
+          <section>
+            <h2>Git Bisect</h2>
+            <p>To start the bisect operation:</p>
+            <pre class="code zsh">$ git checkout &lt;bad-branch&gt;</pre>
+            <pre class="code zsh">$ git bisect start</pre>
+            <pre class="code zsh">$ git bisect bad</pre>
+            <pre class="code zsh">$ git bisect good &lt;good-branch&gt;</pre>
+            <p>Clone this repo for exercise: <a href="https://github.com/rbast/bisect-me">https://github.com/rbast/bisect-me</a>
+          </section>
+          <section>
+            <h2>Git Bisect</h2>
+            <p>You can automate git bisect using a script.</p>
+            <p>You need a script to exit with a zero for a good state and a non-zero for a bad state.</p>
+            <pre class="code zsh">$ git bisect start &lt;bad-branch&gt; &lt;good-branch&gt;</pre>
+            <pre class="code zsh">$ git bisect run &lt;script-file&gt;</pre>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h2>Git Hooks</h2>
+            <p>Hooks are little scripts that are triggered by git at specific events.</p>
+            <p>Some of the most interesting events are:</p>
+            <ul>
+              <li>pre-commit</li>
+              <li>prepare-commit-msg</li>
+              <li>commit-msg</li>
+              <li>post-commit</li>
+              <li>post-checkout</li>
+            </ul>
+          </section>
+          <section>
+            <h2>Git Hooks</h2>
+            <p>Pre-commit hook example to check php files syntax:</p>
+            <pre class="code php">&lt;?php
+
+$path = "*** THE ROOT DIRECTORY OF YOUR PHP FILES ***";
+$output = array();
+exec("find {$path} -name '*.php' | xargs -n1 php -l | grep -v 'No syntax errors detected'", $output);
+exit(count($output) > 0 ? 1 : 0);</pre>
+          </section>
+          <section>
+            <h2>Git Hooks</h2>
+            <p>Prepare-message-commit hook example to include issue number in commit message:</p>
+            <pre class="code python">#!/usr/bin/env python
+
+import sys, os, re
+from subprocess import check_output
+
+# Collect the parameters
+commit_msg_filepath = sys.argv[1]
+if len(sys.argv) > 2:
+    commit_type = sys.argv[2]
+else:
+    commit_type = ''
+if len(sys.argv) > 3:
+    commit_hash = sys.argv[3]
+else:
+    commit_hash = ''
+
+print "prepare-commit-msg: File: %s\nType: %s\nHash: %s" % (commit_msg_filepath, commit_type, commit_hash)
+
+# Figure out which branch we're on
+branch = check_output(['git', 'symbolic-ref', '--short', 'HEAD']).strip()
+print "prepare-commit-msg: On branch '%s'" % branch
+
+# Populate the commit message with the issue #, if there is one
+if branch.startswith('issue-'):
+    print "prepare-commit-msg: Oh hey, it's an issue branch."
+    result = re.match('issue-(.*)', branch)
+    issue_number = result.group(1)
+
+    with open(commit_msg_filepath, 'r+') as f:
+        content = f.read()
+        f.seek(0, 0)
+        f.write("ISSUE-%s %s" % (issue_number, content))</pre>
+
+          </section>
+        </section>
+
+        <section>
           <h3>References</h3>
           <ul>
+            <li>http://git-scm.com/</li>
             <li>http://www.slideshare.net/leeky/gittalk?qid=b2fc5360-a943-467e-9e66-c3481173cdb2&v=qf1&b=&from_search=6</li>
           </ul>
         </section>
