@@ -469,9 +469,9 @@
           <section>
             <h3>Undoing Things</h3>
             <pre class="code zsh">$ git reset &lt;commit&gt;</pre>
-            <img class="half fragment" src="img/undo.svg">
-            <img class="half fragment" src="img/undo-reset.svg">
-            <pre class="code zsh fragment">$ git reset --soft B-SHA</pre>
+            <img class="fragment" style="float: left; width: 45%" src="img/undo.svg">
+            <img class="fragment" style="float: right; width: 45%" src="img/undo-reset.svg">
+            <pre class="code zsh fragment" style="clear: both;">$ git reset --soft B-SHA</pre>
           </section>
           <section>
             <h3>Undoing Things</h3>
@@ -729,6 +729,14 @@ pick 2106a4e Continue rebasing
             <p>You need a script to exit with a zero for a good state and a non-zero for a bad state.</p>
             <pre class="code zsh">$ git bisect start &lt;bad-branch&gt; &lt;good-branch&gt;</pre>
             <pre class="code zsh">$ git bisect run &lt;script-file&gt;</pre>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h2>Tested Git Workflows</h2>
+            <a href="img/git-model-a.png"><img src="img/git-model-a.png" style="width: 45%; float: left;"></a>
+            <a href="img/git-model-b.png"><img src="img/git-model-b.png" style="width: 45%; float: right;"></a>
           </section>
         </section>
 
