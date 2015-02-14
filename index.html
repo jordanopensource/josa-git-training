@@ -647,8 +647,9 @@ debug/
           <section>
             <h2>Interactive Rebase</h2>
             <pre class="code zsh">pick 9b6dbf3 Added rebasing
+pick 2106a4e Continue rebasing
 
-# Rebase aced1c4..9b6dbf3 onto aced1c4
+# Rebase aced1c4..2106a4e onto aced1c4
 #
 # Commands:
 #  p, pick = use commit
@@ -665,6 +666,37 @@ debug/
 # However, if you remove everything, the rebase will be aborted.
 #
 # Note that empty commits are commented out</pre>
+          </section>
+          <section>
+            <h2>Rebase vs Merge</h2>
+            <p>Merging produces commits which can help you in tracking history more, but can also be noisy.</p>
+            <p>Rebasing provides a way to have a linear line of history.</p>
+            <p>Rebasing can be a destructive tool.</p>
+            <p>Rebase should not be used on public branches.</p>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h2>Git Bisect</h2>
+            <p>Let’s say you just pushed out a release of your code to a production environment, you’re getting bug reports about something that wasn’t happening in your development environment, and you can’t imagine why the code is doing that.</p>
+            <p>Git bisect is a tool to do a binary search on your codebase to find a buggy commit.</p>
+          </section>
+          <section>
+            <h2>Git Bisect</h2>
+            <p>To start the bisect operation:</p>
+            <pre class="code zsh">$ git checkout &lt;bad-branch&gt;</pre>
+            <pre class="code zsh">$ git bisect start</pre>
+            <pre class="code zsh">$ git bisect bad</pre>
+            <pre class="code zsh">$ git bisect good &lt;good-branch&gt;</pre>
+            <p>Clone this repo for exercise: <a href="https://github.com/rbast/bisect-me">https://github.com/rbast/bisect-me</a>
+          </section>
+          <section>
+            <h2>Git Bisect</h2>
+            <p>You can automate git bisect using a script.</p>
+            <p>You need a script to exit with a zero for a good state and a non-zero for a bad state.</p>
+            <pre class="code zsh">$ git bisect start &lt;bad-branch&gt; &lt;good-branch&gt;</pre>
+            <pre class="code zsh">$ git bisect run &lt;script-file&gt;</pre>
           </section>
         </section>
 
