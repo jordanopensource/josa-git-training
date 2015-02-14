@@ -370,11 +370,11 @@
             </ul>
           </section>
           <section>
-            <h3>Step 1: Creating a new repository</h3>
+            <h3>Creating a new repository</h3>
           </section>
 
           <section>
-            <h3>Step 2: Adding a remote repository</h3>
+            <h3>Adding a remote repository</h3>
             <p class="glossary">Remote repositories are versions of your project that are hosted on the Internet or network somewhere.</p>
             <ul>
               <li>You can have several repositories</li>
@@ -390,9 +390,26 @@
           </section>
 
           <section>
-            <h3>Step 2: Publishing your code</h3>
+            <h3>Publishing your code</h3>
             <p>Pushing your local changes to a remote repository</p>
             <pre class="code zsh">$ git push -u [remote_name] [branch_name]</pre>
+          </section>
+
+          <section>
+            <h3>Checking changes on the remote server</h3>
+            <p>Fetch</p>
+            <pre class="code zsh">$ git fetch [remote_name]</pre>
+            <p>checkout</p>
+            <pre class="code zsh">$ git checkout -b [local_branch_name] [remote_name]/[branch_name]</pre>
+
+            <p>Merge</p>
+            <pre class="code zsh">$ git merge [branch_name]</pre>
+          </section>
+
+          <section>
+            <h3>Absi is lazy, so we are</h3>
+            <p>pull => fetch and merge</p>
+            <pre class="code zsh">$ git pull [remote_name] [branch_name]</pre>
           </section>
 
           <section>
