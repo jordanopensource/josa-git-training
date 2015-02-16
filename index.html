@@ -734,6 +734,26 @@ pick 2106a4e Continue rebasing
 
         <section>
           <section>
+            <h2>Submodules</h2>
+            <p>Submodules are git repositories within git repositories!</p>
+            <p>You use submodules to include different projects that are dependant on each other.</p>
+          </section>
+          <section>
+            <h2>Submodules</h2>
+            <div class="fragment">
+              <p>To create a submodule:</p>
+              <pre class="code zsh">$ git submodule add &lt;repository&gt;</pre>
+            </div>
+            <div class="fragment">
+              <p>When you first clone a repository, you need to initialize submodules and update:</p>
+              <pre class="code zsh">$ git submodule init</pre>
+              <pre class="code zsh">$ git submodule update</pre>
+            </div>
+          </section>
+        </section>
+
+        <section>
+          <section>
             <h2>Tested Git Workflows</h2>
             <a href="img/git-model-a.png"><img src="img/git-model-a.png" style="width: 45%; float: left;"></a>
             <a href="img/git-model-b.png"><img src="img/git-model-b.png" style="width: 45%; float: right;"></a>
